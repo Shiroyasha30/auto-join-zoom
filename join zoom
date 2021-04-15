@@ -1,0 +1,10 @@
+#!/bin/bash
+while [[ true ]]; do
+	time=$(date +"%H:%M")
+	day=$(date +"%A")
+	link=`grep $day "time table" | grep $time | cut -d " " -f 3`
+	if [[ -n $link ]]; then
+		chromium $link
+	fi
+	sleep 60;
+done
